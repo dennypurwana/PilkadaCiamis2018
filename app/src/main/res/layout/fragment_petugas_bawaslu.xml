@@ -1,0 +1,25 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    >
+
+   <RelativeLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+
+
+       <android.support.v7.widget.RecyclerView
+           android:layout_below="@+id/judul"
+           android:id="@+id/recycler_view_petugas_bawaslu"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:visibility="visible"
+           android:layout_marginBottom="@dimen/activity_horizontal_margin"
+           android:layout_marginTop="@dimen/activity_horizontal_margin"
+           tools:listitem="@layout/list_row_petugas_bawaslu">
+       </android.support.v7.widget.RecyclerView>
+   </RelativeLayout>
+
+</FrameLayout>

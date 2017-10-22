@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "877886117336",
+    "firebase_url": "https://pilkadaciamis2018.firebaseio.com",
+    "project_id": "pilkadaciamis2018",
+    "storage_bucket": "pilkadaciamis2018.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877886117336:android:1ad3143b1eb786d2",
+        "android_client_info": {
+          "package_name": "atps_company.pilkadaciamis2018"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877886117336-mjocj2c4oj85fgebhlilmt5gtoih39k0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC21wm6D1s68_op2e17qldfR19IqWzqORw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

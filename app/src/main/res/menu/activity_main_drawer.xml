@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_beranda"
+            android:icon="@drawable/home"
+            android:title="Beranda" />
+        <item
+            android:id="@+id/nav_seputar_pilkada"
+            android:icon="@drawable/input"
+            android:title="Seputar Pilkada" />
+        <item
+            android:id="@+id/nav_maskot_pilkada"
+            android:icon="@drawable/happiness"
+            android:title="Maskot Pilkada" />
+        <item
+            android:id="@+id/nav_petugas_bawaslu"
+            android:icon="@drawable/users_group"
+            android:title="Petugas Bawaslu" />
+
+        <item
+            android:id="@+id/nav_calon_pasangan"
+            android:icon="@drawable/volunteer"
+            android:title="Calon Pasangan" />
+
+        <item
+            android:id="@+id/nav_persebaran_tps"
+            android:icon="@drawable/cube"
+            android:title="Persebaran TPS" />
+        <item
+            android:id="@+id/nav_hubungi_kami"
+            android:icon="@drawable/call_center"
+            android:title="Hubungi Kami" />
+    </group>
+
+
+
+</menu>

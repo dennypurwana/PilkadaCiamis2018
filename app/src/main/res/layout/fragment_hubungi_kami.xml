@@ -1,0 +1,122 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/background"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+            android:id="@+id/image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="@dimen/dimen_30"
+            android:src="@drawable/pilkada"/>
+
+
+    <TextView
+        android:layout_below="@+id/image"
+        android:id="@+id/judul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Komisi Pemilihan Umum (KPU) Kabupaten Ciamis"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black_effective"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+
+    <TextView
+        android:id="@+id/deskripsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/judul"
+        android:text="Jalan Jenderal Sudirman No 43 Ciamis 46211 \n Telp/Fax (0265) 771012"
+        android:textSize="14dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/black_effective"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/iconFB"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/deskripsi"
+        android:src="@drawable/fb"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <ImageView
+        android:id="@+id/iconTwitter"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/iconFB"
+        android:src="@drawable/twitter"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+    <ImageView
+        android:id="@+id/iconIg"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/iconTwitter"
+        android:src="@drawable/igg"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/fbKPU"
+        android:layout_toRightOf="@+id/iconFB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/deskripsi"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:text=""
+        android:textSize="18dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/black_effective"
+        />
+
+    <TextView
+        android:id="@+id/twitterKPU"
+        android:layout_toRightOf="@+id/iconTwitter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fbKPU"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:text=""
+        android:textSize="18dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/black_effective"
+        />
+    <TextView
+        android:id="@+id/igKPU"
+        android:layout_toRightOf="@+id/iconIg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/twitterKPU"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="@dimen/dimen_20"
+        android:text=""
+        android:textSize="18dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/black_effective"
+        />
+
+</RelativeLayout>
+    </ScrollView>
+</FrameLayout>

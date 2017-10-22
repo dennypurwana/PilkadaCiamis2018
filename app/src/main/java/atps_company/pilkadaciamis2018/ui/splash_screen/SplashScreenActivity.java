@@ -22,7 +22,7 @@ public class SplashScreenActivity extends BaseActivity implements SplashScreenMv
     @Inject
     SplashScreenMvpPresenter<SplashScreenMvpView> mPresenter;
 
-    private static int SPLASH_TIME_OUT = 6000;
+    private static int SPLASH_TIME_OUT = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

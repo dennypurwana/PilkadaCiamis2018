@@ -13,7 +13,7 @@ import atps_company.pilkadaciamis2018.ui.base.MvpPresenter;
 @PerActivity
 public interface CalonPasanganMvpPresenter<V extends CalonPasanganMvpView> extends MvpPresenter<V> {
 
-void loadDataCalonPasangan();
+    void loadDataCalonPasangan();
     void notConnection();
 
 }

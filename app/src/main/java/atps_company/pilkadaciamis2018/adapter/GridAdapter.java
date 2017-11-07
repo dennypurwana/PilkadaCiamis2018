@@ -6,56 +6,60 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import atps_company.pilkadaciamis2018.R;
 import atps_company.pilkadaciamis2018.model.CalonPasangan;
+import atps_company.pilkadaciamis2018.model.PetugasBawaslu;
 
 
-public class GridAdapter extends RecyclerView.Adapter<GridAdapter.CalonPasanganHolder> {
+public class GridAdapter extends BaseAdapter {
+    private Context mContext;
+    private List<PetugasBawaslu> arrayList;
+    public GridAdapter(Context c, List<PetugasBawaslu> mArrayList) {
+        mContext = c;
+        this.arrayList = mArrayList;
+    }
+    @Override
+    public int getCount() {
+        return arrayList.size();
+    }
 
-    private List<CalonPasangan> calonPasanganList;
-    private int rowLayout;
-    private Context context;
+    @Override
+    public Object getItem(int i) {
+        return null;
+    }
 
-    static class CalonPasanganHolder extends RecyclerView.ViewHolder {
-        TextView nourut;
-        ImageView thumbnail;
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
 
-        CalonPasanganHolder(View v) {
-            super(v);
-            nourut = (TextView) v.findViewById(R.id.nourut);
-            thumbnail = (ImageView) v.findViewById(R.id.image);
+    @Override
+    public View getView(int i, View convertView, ViewGroup viewGroup) {
+        View grid;
+        PetugasBawaslu petugasBawaslu = arrayList.get(i);
+        LayoutInflater inflater = (LayoutInflater) mContext
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        if (convertView == null) {
+            grid = new View(mContext);
+            grid = inflater.inflate(R.layout.grid_items, null);
+            TextView textView = (TextView) grid.findViewById(R.id.name);
+            TextView textView2 = (TextView) grid.findViewById(R.id.jabatan);
+            ImageView imageView = (ImageView) grid.findViewById(R.id.image);
+            textView.setText(petugasBawaslu.getNama());
+            textView2.setText(petugasBawaslu.getJabatan());
+        } else {
+            grid = (View) convertView;
         }
+
+        return grid;
     }
 
-    public GridAdapter(List<CalonPasangan> calonPasanganList, int rowLayout, Context context) {
-        this.calonPasanganList = calonPasanganList;
-        this.rowLayout = rowLayout;
-        this.context = context;
-    }
-
-    @Override
-    public GridAdapter.CalonPasanganHolder onCreateViewHolder(ViewGroup parent,
-                                                              int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(rowLayout, parent, false);
-        return new CalonPasanganHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(CalonPasanganHolder holder, final int position) {
-        try {
-
-            holder.nourut.setText("No Urut "+calonPasanganList.get(position).getNourut());
-            } catch (NullPointerException e) {
-
-        }
-    }
-
-    @Override
-    public int getItemCount() {
-        return calonPasanganList.size();
-    }
 }

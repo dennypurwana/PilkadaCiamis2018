@@ -21,11 +21,12 @@ import atps_company.pilkadaciamis2018.ui.beranda.BerandaFragment;
 import atps_company.pilkadaciamis2018.ui.calon_pasangan.CalonPasanganFragment;
 import atps_company.pilkadaciamis2018.ui.detail_paslon.DetailCalonPasanganActivity;
 import atps_company.pilkadaciamis2018.ui.hubungi_kami.HubungiKamiFragment;
+import atps_company.pilkadaciamis2018.ui.list_document_file.ListDocumentFragment;
 import atps_company.pilkadaciamis2018.ui.main.MainActivity;
 import atps_company.pilkadaciamis2018.ui.maskot_pilkada.MaskotPilkadaFragment;
+import atps_company.pilkadaciamis2018.ui.pdf_view.ViewPdfActivity;
 import atps_company.pilkadaciamis2018.ui.persebaran_tps.PersebaranTpsFragment;
 import atps_company.pilkadaciamis2018.ui.petugas_bawaslu.PetugasBawasluFragment;
-import atps_company.pilkadaciamis2018.ui.petugas_bawaslu.PetugasBawasluPresenter;
 import atps_company.pilkadaciamis2018.ui.seputar_pilkada.SeputarPilkadaFragment;
 import atps_company.pilkadaciamis2018.ui.splash_screen.SplashScreenActivity;
 import dagger.Component;
@@ -41,7 +42,10 @@ public interface ActivityComponent {
     void inject(SplashScreenActivity activity);
 
     void inject(MainActivity activity);
+
     void inject(DetailCalonPasanganActivity activity);
+
+    void inject(ViewPdfActivity activity);
 
     void inject(SeputarPilkadaFragment fragment);
 
@@ -56,6 +60,8 @@ public interface ActivityComponent {
     void inject(PetugasBawasluFragment fragment);
 
     void inject(CalonPasanganFragment fragment);
+
+    void inject(ListDocumentFragment fragment);
 
 
 }

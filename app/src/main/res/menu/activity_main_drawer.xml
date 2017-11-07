@@ -34,6 +34,10 @@
             android:id="@+id/nav_hubungi_kami"
             android:icon="@drawable/call_center"
             android:title="Hubungi Kami" />
+        <item
+            android:id="@+id/nav_file_doc"
+            android:icon="@drawable/file"
+            android:title="File/Document" />
     </group>
 
 

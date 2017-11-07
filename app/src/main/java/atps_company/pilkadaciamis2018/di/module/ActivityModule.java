@@ -33,12 +33,18 @@ import atps_company.pilkadaciamis2018.ui.detail_paslon.DetailCalonPasanganPresen
 import atps_company.pilkadaciamis2018.ui.hubungi_kami.HubungiKamiMvpPresenter;
 import atps_company.pilkadaciamis2018.ui.hubungi_kami.HubungiKamiMvpView;
 import atps_company.pilkadaciamis2018.ui.hubungi_kami.HubungiKamiPresenter;
+import atps_company.pilkadaciamis2018.ui.list_document_file.ListDocumentMvpPresenter;
+import atps_company.pilkadaciamis2018.ui.list_document_file.ListDocumentMvpView;
+import atps_company.pilkadaciamis2018.ui.list_document_file.ListDocumentPresenter;
 import atps_company.pilkadaciamis2018.ui.main.MainMvpPresenter;
 import atps_company.pilkadaciamis2018.ui.main.MainMvpView;
 import atps_company.pilkadaciamis2018.ui.main.MainPresenter;
 import atps_company.pilkadaciamis2018.ui.maskot_pilkada.MaskotPilkadaMvpPresenter;
 import atps_company.pilkadaciamis2018.ui.maskot_pilkada.MaskotPilkadaMvpView;
 import atps_company.pilkadaciamis2018.ui.maskot_pilkada.MaskotPilkadaPresenter;
+import atps_company.pilkadaciamis2018.ui.pdf_view.ViewPdfMvpPresenter;
+import atps_company.pilkadaciamis2018.ui.pdf_view.ViewPdfMvpView;
+import atps_company.pilkadaciamis2018.ui.pdf_view.ViewPdfPresenter;
 import atps_company.pilkadaciamis2018.ui.persebaran_tps.PersebaranTpsMvpPresenter;
 import atps_company.pilkadaciamis2018.ui.persebaran_tps.PersebaranTpsMvpView;
 import atps_company.pilkadaciamis2018.ui.persebaran_tps.PersebaranTpsPresenter;
@@ -87,12 +93,15 @@ public class ActivityModule {
             SplashScreenPresenter<SplashScreenMvpView> presenter) {
         return presenter;
     }
+
     @Provides
     @PerActivity
     DetailCalonPasanganMvpPresenter<DetailCalonPasanganMvpView> provideDetailPasanganPresenter(
             DetailCalonPasanganPresenter<DetailCalonPasanganMvpView> presenter) {
         return presenter;
     }
+
+
 
     @Provides
     @PerActivity
@@ -144,6 +153,19 @@ public class ActivityModule {
     @Provides
     CalonPasanganMvpPresenter<CalonPasanganMvpView> provideCalonPasanganPresenter(
             CalonPasanganPresenter<CalonPasanganMvpView> presenter) {
+        return presenter;
+    }
+
+    @PerActivity
+    @Provides
+    ViewPdfMvpPresenter<ViewPdfMvpView> provideViewPdfPresenter(
+            ViewPdfPresenter<ViewPdfMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    ListDocumentMvpPresenter<ListDocumentMvpView> provideListDocumentPresenter(
+            ListDocumentPresenter<ListDocumentMvpView> presenter) {
         return presenter;
     }
 

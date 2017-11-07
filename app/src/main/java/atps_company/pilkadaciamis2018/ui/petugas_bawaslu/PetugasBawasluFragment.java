@@ -2,11 +2,14 @@ package atps_company.pilkadaciamis2018.ui.petugas_bawaslu;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +18,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import atps_company.pilkadaciamis2018.R;
+import atps_company.pilkadaciamis2018.adapter.GridAdapter;
 import atps_company.pilkadaciamis2018.adapter.PetugasBawasluAdapter;
 import atps_company.pilkadaciamis2018.di.component.ActivityComponent;
 import atps_company.pilkadaciamis2018.model.PetugasBawaslu;
@@ -24,6 +28,7 @@ import atps_company.pilkadaciamis2018.ui.base.MvpView;
 import atps_company.pilkadaciamis2018.ui.maskot_pilkada.MaskotPilkadaFragment;
 import atps_company.pilkadaciamis2018.ui.maskot_pilkada.MaskotPilkadaMvpPresenter;
 import atps_company.pilkadaciamis2018.ui.maskot_pilkada.MaskotPilkadaMvpView;
+import atps_company.pilkadaciamis2018.util.GridSpacingItemDecoration;
 import atps_company.pilkadaciamis2018.util.NetworkUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,18 +37,15 @@ import butterknife.ButterKnife;
  * Created by emerio on 10/9/17.
  */
 
-public class PetugasBawasluFragment extends BaseFragment implements PetugasBawasluMvpView,PetugasBawasluAdapter.PetugasBawasluAdapterCallback {
+public class PetugasBawasluFragment extends BaseFragment implements PetugasBawasluMvpView {
 
     public static final String TAG = "SeputarPilkadaFragment";
 
     @Inject
     PetugasBawasluMvpPresenter<PetugasBawasluMvpView> mPresenter;
 
-    @Inject
-    PetugasBawasluAdapter petugasBawasluAdapter;
-
-    @BindView(R.id.recycler_view_petugas_bawaslu)
-    RecyclerView recyclerView;
+    @BindView(R.id.grid_view)
+    GridView gridView;
 
     public static PetugasBawasluFragment newInstance() {
         Bundle args = new Bundle();
@@ -88,9 +90,7 @@ public class PetugasBawasluFragment extends BaseFragment implements PetugasBawas
         }else {
             mPresenter.notConnection();
         }
-        petugasBawasluAdapter.setCallback(this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(petugasBawasluAdapter);
+
     }
 
     @Override
@@ -102,13 +102,10 @@ public class PetugasBawasluFragment extends BaseFragment implements PetugasBawas
 
     @Override
     public void showPetugasBawaslu(List<PetugasBawaslu> petugasBawaslus) {
-        petugasBawasluAdapter.setPetugasBawaslu(petugasBawaslus);
-        petugasBawasluAdapter.notifyDataSetChanged();
+        gridView.setAdapter(new GridAdapter(getActivity(),petugasBawaslus));
+
 
     }
 
-    @Override
-    public void onPetugasBawasluClicked(PetugasBawaslu petugasBawaslu) {
-        Toast.makeText(getActivity(),"test",Toast.LENGTH_LONG).show();
-    }
+
 }

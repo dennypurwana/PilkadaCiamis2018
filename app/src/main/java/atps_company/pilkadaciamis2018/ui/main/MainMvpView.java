@@ -38,6 +38,8 @@ public interface MainMvpView extends MvpView {
 
     void showCalonPasanganFragment();
 
+    void showFileFragment();
+
     void closeNavigationDrawer();
 
     void lockDrawer();

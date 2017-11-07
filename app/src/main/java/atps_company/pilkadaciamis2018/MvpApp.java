@@ -16,16 +16,22 @@
 package atps_company.pilkadaciamis2018;
 
 import android.app.Application;
+import android.os.Handler;
 import android.os.StrictMode;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.interceptors.HttpLoggingInterceptor.Level;
+
+import java.io.File;
+
 import javax.inject.Inject;
 
 import atps_company.pilkadaciamis2018.di.component.ApplicationComponent;
 import atps_company.pilkadaciamis2018.di.component.DaggerApplicationComponent;
 import atps_company.pilkadaciamis2018.di.module.ApplicationModule;
 import atps_company.pilkadaciamis2018.ui.base.MvpView;
+import es.voghdev.pdfviewpager.library.asset.CopyAsset;
+import es.voghdev.pdfviewpager.library.asset.CopyAssetThreadImpl;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 
@@ -34,7 +40,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
  */
 
 public class MvpApp extends Application {
-
+    final String[] sampleAssets = {"adobe.pdf", "sample.pdf", "moby.pdf"};
     @Inject
     CalligraphyConfig mCalligraphyConfig;
 
@@ -56,6 +62,7 @@ public class MvpApp extends Application {
         }
 
         CalligraphyConfig.initDefault(mCalligraphyConfig);
+        initSampleAssets();
     }
 
     public ApplicationComponent getComponent() {
@@ -66,5 +73,12 @@ public class MvpApp extends Application {
     // Needed to replace the component with a test specific one
     public void setComponent(ApplicationComponent applicationComponent) {
         mApplicationComponent = applicationComponent;
+    }
+
+    private void initSampleAssets() {
+        CopyAsset copyAsset = new CopyAssetThreadImpl(this, new Handler());
+        for (String asset : sampleAssets) {
+            copyAsset.copy(asset, new File(getCacheDir(), asset).getAbsolutePath());
+        }
     }
 }

@@ -84,6 +84,12 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V>
     }
 
     @Override
+    public void onDrawerFileClick() {
+        getMvpView().closeNavigationDrawer();
+        getMvpView().showFileFragment();
+    }
+
+    @Override
     public void onNavMenuCreated() {
         if (!isViewAttached()) {
             return;

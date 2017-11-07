@@ -18,34 +18,20 @@ package atps_company.pilkadaciamis2018.ui.main;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Animatable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.mindorks.placeholderview.SwipeDecor;
-import com.mindorks.placeholderview.SwipePlaceHolderView;
-import com.mindorks.placeholderview.listeners.ItemRemovedListener;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -54,6 +40,7 @@ import atps_company.pilkadaciamis2018.ui.base.BaseActivity;
 import atps_company.pilkadaciamis2018.ui.beranda.BerandaFragment;
 import atps_company.pilkadaciamis2018.ui.calon_pasangan.CalonPasanganFragment;
 import atps_company.pilkadaciamis2018.ui.hubungi_kami.HubungiKamiFragment;
+import atps_company.pilkadaciamis2018.ui.list_document_file.ListDocumentFragment;
 import atps_company.pilkadaciamis2018.ui.maskot_pilkada.MaskotPilkadaFragment;
 import atps_company.pilkadaciamis2018.ui.persebaran_tps.PersebaranTpsFragment;
 import atps_company.pilkadaciamis2018.ui.petugas_bawaslu.PetugasBawasluFragment;
@@ -223,6 +210,10 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                                 mPresenter.onDrawerCalonPasanganClick();
                                 return true;
 
+                            case R.id.nav_file_doc:
+                                mPresenter.onDrawerFileClick();
+                                return true;
+
                             default:
                                 return false;
 
@@ -310,6 +301,16 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     }
 
     @Override
+    public void showFileFragment() {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .disallowAddToBackStack()
+                .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
+                .replace(R.id.content_frame, ListDocumentFragment.newInstance(), ListDocumentFragment.TAG)
+                .commit();
+    }
+
+    @Override
     public void closeNavigationDrawer() {
         if (mDrawer != null) {
             mDrawer.closeDrawer(Gravity.START);
@@ -320,10 +321,10 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     public void AlertDialogCreate(){
         new AlertDialog.Builder(MainActivity.this,R.style.exitDialog)
                 .setIcon(R.drawable.ciatul)
-                .setTitle("Pilkada Serentak 2018 \nRabu, 27 Juni 2018")
-                .setMessage("Are you sure you want to exit ?")
-                .setNegativeButton("Cancel", null)
-                .setPositiveButton("EXIT", new DialogInterface.OnClickListener()
+                .setTitle("Pilkada Serentak 2018")
+                .setMessage("Rabu, 27 Juni 2018.")
+                .setNegativeButton("Batal", null)
+                .setPositiveButton("Keluar", new DialogInterface.OnClickListener()
                 {
                     @Override
                     public void onClick(DialogInterface dialog, int which)

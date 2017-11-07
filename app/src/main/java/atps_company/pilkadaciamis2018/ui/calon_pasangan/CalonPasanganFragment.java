@@ -104,7 +104,7 @@ public class CalonPasanganFragment extends BaseFragment implements CalonPasangan
 
     @Override
     public void showDataPasangan(List<CalonPasangan> list) {
-        Log.d("list",String.valueOf(list.size()));
+       Log.d("list",String.valueOf(list.size()));
         adapter.setCalonPasangan(list);
         adapter.notifyDataSetChanged();
     }
